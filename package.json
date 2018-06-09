@@ -1,0 +1,42 @@
+{
+  "name": "pragati-web-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npm run build && node ./www-start",
+    "debug": "npm run build-server-dev && node ./www-start",
+    "build":"npm run build-server && npm run build-client",
+    "build-server": "webpack --progress --color  --display-error-details  --config webpack-config.js --mode production",
+    "build-client":"webpack --progress --color  --display-error-details  --config webpack-config-client.js --mode production",
+    "build-server-dev": "webpack --progress --color  --display-error-details  --config webpack-config.js --mode development"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "cookie-parser": "~1.4.3",
+    "css-loader": "^0.28.11",
+    "debug": "~2.6.9",
+    "ejs": "~2.5.7",
+    "express": "~4.16.2",
+    "http-errors": "~1.6.2",
+    "moment-timezone": "^0.5.17",
+    "morgan": "~1.9.0",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-dom-server": "0.0.5",
+    "react-hot-loader": "^4.3.0",
+    "rx": "^4.1.0",
+    "sass-loader": "^7.0.3",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.12.0",
+    "webpack-dev-middleware": "^3.1.3"
+  },
+  "devDependencies": {
+    "mini-css-extract-plugin": "^0.4.0",
+    "node-sass": "^4.9.0",
+    "webpack-cli": "^3.0.3",
+    "webpack-hot-middleware": "^2.22.2"
+  }
+}
