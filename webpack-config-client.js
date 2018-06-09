@@ -43,9 +43,11 @@ function getConfig(options){
                 },
                {
                    test: /\.css|\.scss/,
+                   exclude: /(node_modules|bower_components)/,
                    use: [
-                       options.mode==="production"?miniCSSExtractPlugin.loader:"style-loader",
-                       "css-loader",
+                       //options.mode==="production"?miniCSSExtractPlugin.loader:"style-loader",
+                       miniCSSExtractPlugin.loader,
+                       "css-loader?modules=true&camelCase=true",
                        "sass-loader"
                    ]
                }

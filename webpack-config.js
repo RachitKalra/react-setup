@@ -58,14 +58,13 @@ function getConfig(options){
                     }
                 },
                 {
-                    test:/\.css|\.scss/,
+                    test: /\.css|\.scss/,
                     use: [
                         miniCSSExtractPlugin.loader,
-                        "css-loader",
+                        "css-loader?modules=true&camelCase=true",
                         "sass-loader"
                     ]
-                }
-            ]
+                }            ]
         },
 
     };
