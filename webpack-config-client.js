@@ -19,7 +19,7 @@ function getConfig(options){
 
         plugins:[
             new miniCSSExtractPlugin({
-                filename:'./public/compiled/bundle.css'
+                filename:path.join(__dirname, "/public/compiled/bundle.css")
             })
         ].concat(options.plugins),
 
@@ -45,12 +45,24 @@ function getConfig(options){
                    test: /\.css|\.scss/,
                    exclude: /(node_modules|bower_components)/,
                    use: [
-                       //options.mode==="production"?miniCSSExtractPlugin.loader:"style-loader",
+                       options.mode==="production"?miniCSSExtractPlugin.loader:"style-loader",
                        miniCSSExtractPlugin.loader,
                        "css-loader?modules=true&camelCase=true",
                        "sass-loader"
                    ]
-               }
+               },
+                //case for loading css files from the node_module directory
+                //disabling the module of css loader
+                {
+                    test: /\.css|\.scss/,
+                    include: /(node_modules|bower_components)/,
+                    use: [
+                        options.mode==="production"?miniCSSExtractPlugin.loader:"style-loader",
+                        miniCSSExtractPlugin.loader,
+                        "css-loader",
+                        "sass-loader"
+                    ]
+                }
            ].concat(options.module.rules)
         }
     }

@@ -22,6 +22,7 @@ fs.readdirSync('node_modules')
 // console.log(node_modules);
 
 const miniCSSExtractPlugin = require('mini-css-extract-plugin');
+const path  =require("path");
 
 function getConfig(options){
     return {
@@ -39,7 +40,7 @@ function getConfig(options){
 
         plugins:[
             new miniCSSExtractPlugin({
-                filename:'./public/compiled/bundle.css'
+                filename:path.join(__dirname, '/public/compiled/bundle.css')
             })
         ],
 
@@ -59,12 +60,25 @@ function getConfig(options){
                 },
                 {
                     test: /\.css|\.scss/,
+                    exclude: /(node_modules|bower_components)/,
                     use: [
                         miniCSSExtractPlugin.loader,
                         "css-loader?modules=true&camelCase=true",
                         "sass-loader"
                     ]
-                }            ]
+                },
+                {
+                    //case for loading css files from the node_module directory
+                    //disabling the module of css loader
+                    test: /\.css|\.scss/,
+                    include: /(node_modules|bower_components)/,
+                    use: [
+                        miniCSSExtractPlugin.loader,
+                        "css-loader",
+                        "sass-loader"
+                    ]
+                }
+                ]
         },
 
     };

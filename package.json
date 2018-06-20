@@ -5,9 +5,9 @@
   "scripts": {
     "start": "npm run build && node ./www-start",
     "debug": "npm run build-server-dev && node ./www-start",
-    "build":"npm run build-server && npm run build-client",
+    "build": "npm run build-server && npm run build-client",
     "build-server": "webpack --progress --color  --display-error-details  --config webpack-config.js --mode production",
-    "build-client":"webpack --progress --color  --display-error-details  --config webpack-config-client.js --mode production",
+    "build-client": "webpack --progress --color  --display-error-details  --config webpack-config-client.js --mode production",
     "build-server-dev": "webpack --progress --color  --display-error-details  --config webpack-config.js --mode development"
   },
   "dependencies": {
@@ -27,6 +27,7 @@
     "react-dom": "^16.4.0",
     "react-dom-server": "0.0.5",
     "react-hot-loader": "^4.3.0",
+    "react-router": "^4.3.1",
     "rx": "^4.1.0",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
