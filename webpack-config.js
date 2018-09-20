@@ -40,7 +40,7 @@ function getConfig(options){
 
         plugins:[
             new miniCSSExtractPlugin({
-                filename:path.join(__dirname, '/public/compiled/bundle.css')
+                filename:'./public/compiled/bundle.css'
             })
         ],
 
@@ -78,7 +78,7 @@ function getConfig(options){
                         "sass-loader"
                     ]
                 }
-                ]
+            ]
         },
 
     };

@@ -19,7 +19,7 @@ function getConfig(options){
 
         plugins:[
             new miniCSSExtractPlugin({
-                filename:path.join(__dirname, "/public/compiled/bundle.css")
+                filename:"bundle.css"
             })
         ].concat(options.plugins),
 
@@ -58,7 +58,6 @@ function getConfig(options){
                     include: /(node_modules|bower_components)/,
                     use: [
                         options.mode==="production"?miniCSSExtractPlugin.loader:"style-loader",
-                        miniCSSExtractPlugin.loader,
                         "css-loader",
                         "sass-loader"
                     ]

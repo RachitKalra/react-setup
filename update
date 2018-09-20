@@ -1,0 +1,2 @@
+>changed the config bugs in  client and server (removed duplicate mini css entry in loader causing build failures, and
+    changed the output file name path in mini css plugin causing build failures)
