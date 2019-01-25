@@ -52,7 +52,7 @@ function getConfig(options){
                     use: {
                         loader: 'babel-loader',
                         options: {
-                            presets: ['env','react'],
+                            presets: [['@babel/preset-env',{"modules": "commonjs"}],'@babel/preset-react'],
                             cacheDirectory: true,
                             plugins: ['react-hot-loader/babel']
                         }
