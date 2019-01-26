@@ -46,7 +46,6 @@ function getConfig(options){
                    exclude: /(node_modules|bower_components)/,
                    use: [
                        options.mode==="production"?miniCSSExtractPlugin.loader:"style-loader",
-                       miniCSSExtractPlugin.loader,
                        "css-loader?modules=true&camelCase=true",
                        "sass-loader"
                    ]
