@@ -23,9 +23,6 @@ app.use(cookieParser());
 
 app.use(express.static('./public'));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-
 //loading the hot re-loader only in development
 (()=>{
 
@@ -51,6 +48,10 @@ app.use('/users', usersRouter);
     }
 
 })();
+
+
+app.use('/users', usersRouter);
+app.use('/', indexRouter);
 
 
 // catch 404 and forward to error handler
