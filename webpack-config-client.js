@@ -8,7 +8,7 @@ function getConfig(options){
         mode: options.mode,
 
         entry:options.entry.concat([
-            "./client-init.js"
+            "./client-init.tsx"
         ]),
 
         output:{
@@ -26,9 +26,16 @@ function getConfig(options){
         optimization: {
             noEmitOnErrors: true
         },
-
+        resolve: {
+            extensions: [ '.tsx', '.ts', '.js' ]
+        },
         module:{
             rules:[
+                {
+                    test:/\.tsx?$/,
+                    use:'ts-loader',
+                    exclude:/node_modules/
+                },
                 {
                     test: /\.js$/,
                     exclude: /(node_modules|bower_components)/,

@@ -6,6 +6,8 @@
 # User-specific stuff
 .idea
 *.iml
+/dist
+
 # CMake
 cmake-build-debug/
 cmake-build-release/

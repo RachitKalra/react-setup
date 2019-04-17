@@ -30,7 +30,7 @@ function getConfig(options){
         mode:options.mode,
 
         externals: node_modules,
-        entry:['./server-init.js'],
+        entry:['./server-init.ts'],
 
         target:'node',
         output:{
@@ -43,9 +43,16 @@ function getConfig(options){
                 filename:'./public/compiled/bundle.css'
             })
         ],
-
+        resolve: {
+            extensions: [ '.tsx', '.ts', '.js' ]
+        },
         module: {
             rules: [
+                {
+                    test:/\.tsx?$/,
+                    use:'ts-loader',
+                    exclude:/node_modules/
+                },
                 {
                     test: /\.js$/,
                     exclude: /(node_modules|bower_components)/,
