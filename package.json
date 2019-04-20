@@ -23,6 +23,7 @@
     "react-dom-server": "0.0.5",
     "react-hot-loader": "^4.8.4",
     "react-router": "^5.0.0",
+    "react-router-dom": "^5.0.0",
     "rxjs": "^6.4.0"
   },
   "devDependencies": {
