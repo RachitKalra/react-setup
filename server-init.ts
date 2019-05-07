@@ -4,8 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+import indexRouter from "./routes/index"
 
 const app = express();
 
@@ -50,7 +49,6 @@ app.use(express.static('./public'));
 })();
 
 
-app.use('/users', usersRouter);
 app.use('/', indexRouter);
 
 

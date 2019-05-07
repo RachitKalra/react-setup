@@ -1,6 +1,6 @@
 {
   "name": "react-setup",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "scripts": {
     "start": "npm run build && node ./www-start",
@@ -16,7 +16,7 @@
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "http-errors": "^1.7.2",
-    "moment-timezone": "^0.5.23",
+    "moment-timezone": "^0.5.25",
     "morgan": "^1.9.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -27,25 +27,26 @@
     "rxjs": "^6.4.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.3",
-    "@babel/preset-env": "^7.4.3",
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
     "@types/express": "^4.16.1",
-    "@types/node": "^11.13.4",
-    "@types/react": "^16.8.14",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.8.16",
     "@types/react-dom": "^16.8.4",
     "@types/react-router": "^4.4.5",
+    "@types/react-router-dom": "^4.3.3",
     "babel-loader": "^8.0.5",
     "css-loader": "^2.1.1",
     "mini-css-extract-plugin": "^0.6.0",
-    "node-sass": "^4.9.3",
+    "node-sass": "^4.12.0",
     "sass-loader": "^7.1.0",
-    "style-loader": "^0.23.0",
-    "ts-loader": "^5.3.3",
-    "typescript": "^3.4.2",
+    "style-loader": "^0.23.1",
+    "ts-loader": "^6.0.0",
+    "typescript": "^3.4.5",
     "webpack": "^4.30.0",
-    "webpack-cli": "^3.3.0",
+    "webpack-cli": "^3.3.2",
     "webpack-dev-middleware": "^3.6.2",
-    "webpack-hot-middleware": "^2.23.1"
+    "webpack-hot-middleware": "^2.24.4"
   }
 }
