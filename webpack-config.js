@@ -69,8 +69,14 @@ function getConfig(options){
                     test: /\.css|\.scss/,
                     exclude: /(node_modules|bower_components)/,
                     use: [
-                        miniCSSExtractPlugin.loader,
-                        "css-loader?modules=true&camelCase=true",
+                        options.mode==="production"?miniCSSExtractPlugin.loader:"style-loader",
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                localsConvention: 'camelCase',
+                                modules:true
+                            }
+                        },
                         "sass-loader"
                     ]
                 },

@@ -48,15 +48,21 @@ function getConfig(options){
                         }
                     }
                 },
-               {
-                   test: /\.css|\.scss/,
-                   exclude: /(node_modules|bower_components)/,
-                   use: [
-                       options.mode==="production"?miniCSSExtractPlugin.loader:"style-loader",
-                       "css-loader?modules=true&camelCase=true",
-                       "sass-loader"
-                   ]
-               },
+                {
+                    test: /\.css|\.scss/,
+                    exclude: /(node_modules|bower_components)/,
+                    use: [
+                        options.mode==="production"?miniCSSExtractPlugin.loader:"style-loader",
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                localsConvention: 'camelCase',
+                                modules:true
+                            }
+                        },
+                        "sass-loader"
+                    ]
+                },
                 //case for loading css files from the node_module directory
                 //disabling the module of css loader
                 {
