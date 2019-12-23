@@ -69,7 +69,7 @@ function getConfig(options){
                     test: /\.css|\.scss/,
                     exclude: /(node_modules|bower_components)/,
                     use: [
-                        options.mode==="production"?miniCSSExtractPlugin.loader:"style-loader",
+                        miniCSSExtractPlugin.loader,
                         {
                             loader: 'css-loader',
                             options: {

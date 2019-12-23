@@ -74,7 +74,7 @@ function getConfig(options){
                         "sass-loader"
                     ]
                 }
-           ].concat(options.module.rules)
+            ].concat(options.module.rules)
         }
     }
 
