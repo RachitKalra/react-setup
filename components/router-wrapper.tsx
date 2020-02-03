@@ -1,6 +1,11 @@
-import {BrowserRouter,StaticRouter} from "react-router-dom";
+import {BrowserRouter,  StaticRouter} from "react-router-dom";
 import * as React from 'react';
 
+interface WrapperProps{
+    server?:boolean,
+    context?:any,
+    url?:any
+}
 
 /**
  * wraps the component in respective router
@@ -8,30 +13,33 @@ import * as React from 'react';
  * if <b>server<b> flag in present then renders as static router
  * else renders as Browser router
  * */
-export default function(Component){
+function routerWrapper<A extends WrapperProps>(Component):React.FunctionComponent<A>{
 
 
     return (props)=>{
-        console.log(props,StaticRouter,Component);
+        console.log(props);
 
-        const comp = <Component {...props}/>;
 
         //using the respective router using the flag provided by the server
         if(props.server){
             console.log("Static Router");
             return(
-                <StaticRouter context ={props.context} location={props.url}>
-                    {comp}
+                <StaticRouter context ={props.context} location={props.url} >
+
+                    <Component {...props}/>
                 </StaticRouter>
             )
         }
         else {
             console.log("Browser Router");
             return (
-                <BrowserRouter>
-                    {comp}
+                <BrowserRouter >
+                    <Component {...props}/>
                 </BrowserRouter>
             )
         }
     };
 }
+
+
+export {routerWrapper,WrapperProps}

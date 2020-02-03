@@ -12,13 +12,11 @@ router.get('/', function(req, res, next) {
 
     const ctx:StaticRouterContext={};
 
-    const reactHtml = renderToString(<App server={true} context={ctx} location={req.url}/>);
-    if (ctx.url) {
-        res.writeHead(302, {
-            Location: ctx.url
-        });
+    const reactHtml = renderToString(<App server={true} context={ctx} url={req.url} />);
+    if(ctx.action==="REPLACE"&&ctx.url!==req.url){
+        res.writeHead(302,{Location:ctx.url});
         res.end();
-    } else {
+    }else{
         res.render('index', {
             title: 'Express',
             "react_app":reactHtml
