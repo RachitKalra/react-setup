@@ -23,6 +23,8 @@ fs.readdirSync('node_modules')
 
 const miniCSSExtractPlugin = require('mini-css-extract-plugin');
 const path  =require("path");
+const CopyPlugin = require('copy-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 function getConfig(options){
     return {
@@ -35,13 +37,37 @@ function getConfig(options){
         target:'node',
         output:{
             filename:"www-start",
-            path:__dirname
+            path:path.resolve(__dirname,"dist/")
         },
 
         plugins:[
+            new CleanWebpackPlugin(),
             new miniCSSExtractPlugin({
                 filename:'./public/compiled/bundle.css'
-            })
+            }),
+            new CopyPlugin([
+                {
+                    from: 'public/stylesheets',
+                    to: 'public/stylesheets',
+                },
+                {
+                    from: 'public/images',
+                    to: 'public/images',
+                },
+                {
+                    from: 'views',
+                    to: 'views',
+                },
+                {
+                    from: '*.json',
+                    to: '[name].[ext]',
+                    test:/^(package){1}\.*\.*$/
+                },
+                {
+                    from: 'Dockerfile',
+                    to: '[name]',
+                }
+            ])
         ],
         resolve: {
             extensions: [ '.tsx', '.ts', '.js' ]

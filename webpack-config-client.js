@@ -12,7 +12,7 @@ function getConfig(options){
         ]),
 
         output:{
-            path: path.resolve( "public/compiled/"),
+            path: path.resolve( "dist/public/compiled/"),
             publicPath:"/compiled/",
             filename:"bundle.js"
         },
