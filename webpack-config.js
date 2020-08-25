@@ -5,6 +5,7 @@
 
 
 const fs = require('fs');
+const globby = require("globby");
 
 // filtering out mode modules which might have native code unfit front end
 const node_modules  ={};
@@ -45,29 +46,33 @@ function getConfig(options){
             new miniCSSExtractPlugin({
                 filename:'./public/compiled/bundle.css'
             }),
-            new CopyPlugin([
-                {
-                    from: 'public/stylesheets',
-                    to: 'public/stylesheets',
-                },
-                {
-                    from: 'public/images',
-                    to: 'public/images',
-                },
-                {
-                    from: 'views',
-                    to: 'views',
-                },
-                {
-                    from: '*.json',
-                    to: '[name].[ext]',
-                    test:/^(package){1}\.*\.*$/
-                },
-                {
-                    from: 'Dockerfile',
-                    to: '[name]',
-                }
-            ])
+            new CopyPlugin({
+                patterns:[
+                    {
+                        from: 'public/stylesheets',
+                        to: 'public/stylesheets',
+                    },
+                    // {
+                    //     from: 'public/images',
+                    //     to: 'public/images',
+                    // },
+                    {
+                        from: 'views',
+                        to: 'views',
+                    },
+                    {
+                        from: 'package*.json',
+                        to: '[name].[ext]',
+                        globOptions: {
+                            ignore: ['**/node_modules/**'],
+                        },
+                    },
+                    {
+                        from: 'Dockerfile',
+                        to: '[name]',
+                    }
+                ]
+            })
         ],
         resolve: {
             extensions: [ '.tsx', '.ts', '.js' ]

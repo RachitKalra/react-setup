@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "npm run build && node ./www-start",
-    "debug": "npm run build-server-dev && node ./www-start",
+    "debug": "npm run build-server-dev && node ./dist/www-start",
     "build.temp": "npm run build-server-dev && npm run build-client",
     "build": "npm run build-server && npm run build-client",
     "build-server": "webpack --progress --color  --display-error-details  --config webpack-config.js --mode production",
@@ -16,6 +16,7 @@
     "debug": "^4.1.1",
     "ejs": "~3.1.5",
     "express": "~4.17.1",
+    "firebase": "^7.18.0",
     "http-errors": "^1.8.0",
     "moment-timezone": "^0.5.31",
     "morgan": "^1.10.0",
@@ -25,13 +26,14 @@
     "react-hot-loader": "^4.12.21",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "rxjs": "^6.6.2"
+    "rxjs": "^6.6.2",
+    "tailwindcss": "^1.7.1"
   },
   "devDependencies": {
     "@babel/core": "^7.11.1",
-    "@types/cookie-parser": "^1.4.2",
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
+    "@types/cookie-parser": "^1.4.2",
     "@types/express": "^4.17.7",
     "@types/node": "^14.6.0",
     "@types/react": "^16.9.46",
