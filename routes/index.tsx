@@ -8,7 +8,7 @@ import * as React from 'react';
 
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('*', function(req, res, next) {
 
     const ctx:StaticRouterContext={};
 
